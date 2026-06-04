@@ -3,6 +3,7 @@
   import { countriesIn, loadPool } from '$lib/pool';
   import { router } from '$lib/stores/router.svelte';
   import { settings } from '$lib/stores/settings.svelte';
+  import { multiplayer as mp } from '$lib/stores/multiplayer.svelte';
   import type { GameMode } from '$lib/net/bindings';
   import ModeSelector from '../components/ModeSelector.svelte';
 
@@ -100,6 +101,24 @@
     </select>
   </section>
 
+  <section class="field">
+    <label for="server">Multiplayer server</label>
+    <input
+      id="server"
+      type="text"
+      autocapitalize="off"
+      autocorrect="off"
+      spellcheck="false"
+      placeholder="wss://your-tunnel.example/ws"
+      value={mp.serverUrl}
+      onchange={(e) => mp.setServerUrl(e.currentTarget.value)}
+    />
+    <p class="note">
+      The friends server you connect to. Use <code>wss://</code> over a tunnel (Cloudflare/ngrok);
+      <code>ws://127.0.0.1:8787/ws</code> for local testing.
+    </p>
+  </section>
+
   <button type="button" class="primary done" onclick={() => router.go('menu')}>Done</button>
 </div>
 
@@ -160,8 +179,21 @@
     flex-direction: column;
     gap: 8px;
   }
-  .field select {
+  .field select,
+  .field input {
     width: 100%;
+  }
+  .note {
+    margin: 0;
+    color: var(--fg-muted);
+    font-size: 0.8rem;
+    line-height: 1.4;
+  }
+  .note code {
+    background: var(--bg-elev-2);
+    padding: 1px 5px;
+    border-radius: 5px;
+    font-size: 0.9em;
   }
   .done {
     margin-top: auto;

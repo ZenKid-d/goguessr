@@ -16,9 +16,9 @@ run yourself and expose to friends over a tunnel.
 | A    | Monorepo skeleton + cross-language game core (scoring, ts-rs) | ✅ done                                                                |
 | B    | Svelte 5 solo MVP (panorama + guess map + scoring)            | ✅ done                                                                |
 | C    | Tauri 2 + Android packaging + local storage (rusqlite)        | ✅ done (desktop compile verified; `android build` needs your SDK/NDK) |
-| D    | Axum WebSocket server + multiplayer rooms                     | ⏳ planned                                                             |
+| D    | Axum WebSocket server + multiplayer rooms (server + client)   | ✅ done (run the server; see _Multiplayer_ below)                      |
 | E    | Pool builder + world-capital seeds (`data/locations.json`)    | ✅ done (run `npm run build-pool` with your token)                     |
-| F    | Android build polish + UX + Definition-of-Done pass           | ⏳ planned                                                             |
+| F    | Android build polish + UX + Definition-of-Done pass           | 🚧 in progress (ESLint wired + clean; Android `build` needs your SDK)  |
 
 ## Prerequisites
 
@@ -114,9 +114,56 @@ geo-guess/
 | `npm run check:client` | `svelte-check` (types for `.svelte` + `.ts`)                     |
 | `npm run gen:bindings` | Regenerate `apps/client/src/lib/net/bindings/` from Rust (ts-rs) |
 | `npm run gen:vectors`  | Regenerate the scoring fixture                                   |
-| `npm run lint`         | `svelte-check` + `clippy -D warnings` (ESLint added in Part F)   |
+| `npm run lint`         | `svelte-check` + ESLint + `clippy -D warnings`                   |
+| `npm run lint:js`      | ESLint only (TypeScript + Svelte)                                |
 | `npm run format`       | Prettier (write) + `cargo fmt`                                   |
 | `npm run build:pool`   | Build `data/locations.json` from Mapillary (Part E; needs token) |
+
+## Multiplayer
+
+Multiplayer is a small **authoritative** server you run yourself; friends connect
+to it by a short room code. The server owns the truth — it picks the locations,
+sends each client only the `image_id` (never the coordinates), scores guesses,
+and decides when each round closes (everyone answered, or the deadline passed).
+
+### Run the server
+
+```bash
+cargo run -p server          # listens on ws://0.0.0.0:8787/ws
+```
+
+It loads the same pool as solo (`data/locations.json`, falling back to the sample),
+so build a real pool first (Part E) for real imagery. Env: `PORT` (default 8787),
+`POOL_PATH` (override the pool file).
+
+### Let friends in (tunnel)
+
+The server is on your machine; expose it over a tunnel so friends reach it from
+anywhere (and so Android's default cleartext policy is satisfied with `wss://`):
+
+```bash
+cloudflared tunnel --url http://localhost:8787      # prints an https URL
+# or: ngrok http 8787
+```
+
+Take the printed host and give everyone the **WebSocket** URL with the `/ws` path,
+e.g. `wss://random-name.trycloudflare.com/ws`. Each player pastes it into
+**Settings → Multiplayer server** (it's remembered). For same-machine browser
+testing the default `ws://127.0.0.1:8787/ws` works as-is.
+
+### Play
+
+1. **Menu → Multiplayer.** Enter a display name.
+2. **Create a room** (you're the host) — share the room code. Or **Join** with a code.
+3. The host tunes settings (rounds, mode, difficulty, time limit, region) in the
+   lobby, then **Start**. Everyone plays the same locations in lockstep; after each
+   round you see the truth, everyone's pins and per-round scores; at the end, the
+   final standings.
+
+> **Disconnects:** by design a dropped socket means that player is **out** for the
+> rest of the game (their score is kept in the standings). There is no reconnect
+> token. To play again after a game, the host opens a **New room** and reshares the
+> code — the room protocol is intentionally minimal (no persistent leaderboard).
 
 ## Running as an app (Tauri / Android)
 

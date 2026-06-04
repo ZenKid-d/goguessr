@@ -25,12 +25,13 @@ apps/client/src-tauri/gen/
 # `data/locations.sample.json` IS committed as the schema reference.
 data/locations.json
 
-# OS / editor
+# OS / editor / local tooling
 .DS_Store
 Thumbs.db
 .idea/
 .vscode/*
 !.vscode/extensions.json
+.claude/
 
 # Logs
 *.log

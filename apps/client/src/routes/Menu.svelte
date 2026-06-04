@@ -56,10 +56,8 @@
     <button type="button" class="primary big" onclick={playSolo} disabled={solo.loading}>
       {solo.loading ? 'Loading…' : 'Play solo'}
     </button>
+    <button type="button" onclick={() => router.go('lobby')}>Multiplayer</button>
     <button type="button" onclick={() => router.go('settings')}>Settings</button>
-    <button type="button" disabled title="Coming in the multiplayer update">
-      Multiplayer (soon)
-    </button>
   </div>
 
   <footer>Imagery © Mapillary contributors · Map © OpenStreetMap contributors</footer>

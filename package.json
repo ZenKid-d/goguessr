@@ -16,15 +16,22 @@
     "test:rust": "cargo test",
     "test": "npm run test:rust && npm run test:client",
     "check:client": "npm -w apps/client run check",
-    "lint": "npm run check:client && cargo clippy --all-targets -- -D warnings",
+    "lint:js": "eslint .",
+    "lint": "npm run check:client && npm run lint:js && cargo clippy --all-targets -- -D warnings",
     "format": "prettier --write \"**/*.{ts,svelte,js,mjs,json,md}\" && cargo fmt",
     "format:check": "prettier --check \"**/*.{ts,svelte,js,mjs,json,md}\"",
     "dev": "npm -w apps/client run dev",
     "build:pool": "npm -w tools/pool-builder run build-pool"
   },
   "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "eslint": "^9.17.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-svelte": "^2.46.1",
+    "globals": "^15.14.0",
     "prettier": "^3.4.2",
-    "prettier-plugin-svelte": "^3.3.2"
+    "prettier-plugin-svelte": "^3.3.2",
+    "typescript-eslint": "^8.18.2"
   },
   "engines": {
     "node": ">=20"
