@@ -1,0 +1,11 @@
+{
+  "name": "@geo-guess/pool-builder",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Builds data/locations.json from the Mapillary API (world-capital seeds).",
+  "scripts": {
+    "build-pool": "node --experimental-strip-types src/build-pool.ts",
+    "check": "tsc --noEmit"
+  }
+}

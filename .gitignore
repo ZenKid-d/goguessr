@@ -1,0 +1,37 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Build output
+dist/
+build/
+*.tsbuildinfo
+
+# Rust
+target/
+
+# Tauri
+apps/client/src-tauri/target/
+apps/client/src-tauri/gen/
+
+# Secrets — NEVER commit real tokens
+.env
+.env.local
+.env.*.local
+
+# Generated location pool (built locally with a Mapillary token).
+# The canonical pool is large and token-derived; keep it out of git.
+# `data/locations.sample.json` IS committed as the schema reference.
+data/locations.json
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+# Logs
+*.log
+npm-debug.log*

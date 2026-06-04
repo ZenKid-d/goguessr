@@ -1,0 +1,31 @@
+{
+  "$schema_note": "Canonical pool schema. The REAL pool (data/locations.json) is produced by tools/pool-builder with a Mapillary token. This sample exists so the app and server have a valid file to load before you build the real one. IMPORTANT: the image_ids below are placeholders — mapillary-js cannot render them. Replace this file (or generate data/locations.json) with real Mapillary image IDs to actually see panoramas.",
+  "version": 1,
+  "generated_at": "2026-06-03T00:00:00Z",
+  "locations": [
+    {
+      "id": "100000000000001",
+      "lat": 48.858844,
+      "lng": 2.294351,
+      "country": "France",
+      "seed": "Paris",
+      "is_pano": true
+    },
+    {
+      "id": "100000000000002",
+      "lat": 51.500729,
+      "lng": -0.124625,
+      "country": "United Kingdom",
+      "seed": "London",
+      "is_pano": true
+    },
+    {
+      "id": "100000000000003",
+      "lat": 35.659494,
+      "lng": 139.700553,
+      "country": "Japan",
+      "seed": "Tokyo",
+      "is_pano": false
+    }
+  ]
+}

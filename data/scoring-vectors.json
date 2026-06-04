@@ -1,0 +1,320 @@
+{
+  "max_score_per_round": 5000,
+  "cases": [
+    {
+      "from_name": "paris",
+      "to_name": "paris",
+      "scale_km": 2000,
+      "from": {
+        "lat": 48.8566,
+        "lng": 2.3522
+      },
+      "to": {
+        "lat": 48.8566,
+        "lng": 2.3522
+      },
+      "distance_km": 0,
+      "score": 5000
+    },
+    {
+      "from_name": "paris",
+      "to_name": "london",
+      "scale_km": 2000,
+      "from": {
+        "lat": 48.8566,
+        "lng": 2.3522
+      },
+      "to": {
+        "lat": 51.5074,
+        "lng": -0.1278
+      },
+      "distance_km": 343.5560603410416,
+      "score": 4211
+    },
+    {
+      "from_name": "paris",
+      "to_name": "newYork",
+      "scale_km": 2000,
+      "from": {
+        "lat": 48.8566,
+        "lng": 2.3522
+      },
+      "to": {
+        "lat": 40.7128,
+        "lng": -74.006
+      },
+      "distance_km": 5837.240903825838,
+      "score": 270
+    },
+    {
+      "from_name": "newYork",
+      "to_name": "tokyo",
+      "scale_km": 2000,
+      "from": {
+        "lat": 40.7128,
+        "lng": -74.006
+      },
+      "to": {
+        "lat": 35.6762,
+        "lng": 139.6503
+      },
+      "distance_km": 10851.732848762305,
+      "score": 22
+    },
+    {
+      "from_name": "tokyo",
+      "to_name": "sydney",
+      "scale_km": 2000,
+      "from": {
+        "lat": 35.6762,
+        "lng": 139.6503
+      },
+      "to": {
+        "lat": -33.8688,
+        "lng": 151.2093
+      },
+      "distance_km": 7825.818616516158,
+      "score": 100
+    },
+    {
+      "from_name": "equator0",
+      "to_name": "equator1",
+      "scale_km": 2000,
+      "from": {
+        "lat": 0,
+        "lng": 0
+      },
+      "to": {
+        "lat": 0,
+        "lng": 1
+      },
+      "distance_km": 111.19492664455873,
+      "score": 4730
+    },
+    {
+      "from_name": "antipodeN",
+      "to_name": "antipodeS",
+      "scale_km": 2000,
+      "from": {
+        "lat": 89,
+        "lng": 0
+      },
+      "to": {
+        "lat": -89,
+        "lng": 0
+      },
+      "distance_km": 19792.696942731476,
+      "score": 0
+    },
+    {
+      "from_name": "paris",
+      "to_name": "paris",
+      "scale_km": 1000,
+      "from": {
+        "lat": 48.8566,
+        "lng": 2.3522
+      },
+      "to": {
+        "lat": 48.8566,
+        "lng": 2.3522
+      },
+      "distance_km": 0,
+      "score": 5000
+    },
+    {
+      "from_name": "paris",
+      "to_name": "london",
+      "scale_km": 1000,
+      "from": {
+        "lat": 48.8566,
+        "lng": 2.3522
+      },
+      "to": {
+        "lat": 51.5074,
+        "lng": -0.1278
+      },
+      "distance_km": 343.5560603410416,
+      "score": 3546
+    },
+    {
+      "from_name": "paris",
+      "to_name": "newYork",
+      "scale_km": 1000,
+      "from": {
+        "lat": 48.8566,
+        "lng": 2.3522
+      },
+      "to": {
+        "lat": 40.7128,
+        "lng": -74.006
+      },
+      "distance_km": 5837.240903825838,
+      "score": 15
+    },
+    {
+      "from_name": "newYork",
+      "to_name": "tokyo",
+      "scale_km": 1000,
+      "from": {
+        "lat": 40.7128,
+        "lng": -74.006
+      },
+      "to": {
+        "lat": 35.6762,
+        "lng": 139.6503
+      },
+      "distance_km": 10851.732848762305,
+      "score": 0
+    },
+    {
+      "from_name": "tokyo",
+      "to_name": "sydney",
+      "scale_km": 1000,
+      "from": {
+        "lat": 35.6762,
+        "lng": 139.6503
+      },
+      "to": {
+        "lat": -33.8688,
+        "lng": 151.2093
+      },
+      "distance_km": 7825.818616516158,
+      "score": 2
+    },
+    {
+      "from_name": "equator0",
+      "to_name": "equator1",
+      "scale_km": 1000,
+      "from": {
+        "lat": 0,
+        "lng": 0
+      },
+      "to": {
+        "lat": 0,
+        "lng": 1
+      },
+      "distance_km": 111.19492664455873,
+      "score": 4474
+    },
+    {
+      "from_name": "antipodeN",
+      "to_name": "antipodeS",
+      "scale_km": 1000,
+      "from": {
+        "lat": 89,
+        "lng": 0
+      },
+      "to": {
+        "lat": -89,
+        "lng": 0
+      },
+      "distance_km": 19792.696942731476,
+      "score": 0
+    },
+    {
+      "from_name": "paris",
+      "to_name": "paris",
+      "scale_km": 500,
+      "from": {
+        "lat": 48.8566,
+        "lng": 2.3522
+      },
+      "to": {
+        "lat": 48.8566,
+        "lng": 2.3522
+      },
+      "distance_km": 0,
+      "score": 5000
+    },
+    {
+      "from_name": "paris",
+      "to_name": "london",
+      "scale_km": 500,
+      "from": {
+        "lat": 48.8566,
+        "lng": 2.3522
+      },
+      "to": {
+        "lat": 51.5074,
+        "lng": -0.1278
+      },
+      "distance_km": 343.5560603410416,
+      "score": 2515
+    },
+    {
+      "from_name": "paris",
+      "to_name": "newYork",
+      "scale_km": 500,
+      "from": {
+        "lat": 48.8566,
+        "lng": 2.3522
+      },
+      "to": {
+        "lat": 40.7128,
+        "lng": -74.006
+      },
+      "distance_km": 5837.240903825838,
+      "score": 0
+    },
+    {
+      "from_name": "newYork",
+      "to_name": "tokyo",
+      "scale_km": 500,
+      "from": {
+        "lat": 40.7128,
+        "lng": -74.006
+      },
+      "to": {
+        "lat": 35.6762,
+        "lng": 139.6503
+      },
+      "distance_km": 10851.732848762305,
+      "score": 0
+    },
+    {
+      "from_name": "tokyo",
+      "to_name": "sydney",
+      "scale_km": 500,
+      "from": {
+        "lat": 35.6762,
+        "lng": 139.6503
+      },
+      "to": {
+        "lat": -33.8688,
+        "lng": 151.2093
+      },
+      "distance_km": 7825.818616516158,
+      "score": 0
+    },
+    {
+      "from_name": "equator0",
+      "to_name": "equator1",
+      "scale_km": 500,
+      "from": {
+        "lat": 0,
+        "lng": 0
+      },
+      "to": {
+        "lat": 0,
+        "lng": 1
+      },
+      "distance_km": 111.19492664455873,
+      "score": 4003
+    },
+    {
+      "from_name": "antipodeN",
+      "to_name": "antipodeS",
+      "scale_km": 500,
+      "from": {
+        "lat": 89,
+        "lng": 0
+      },
+      "to": {
+        "lat": -89,
+        "lng": 0
+      },
+      "distance_km": 19792.696942731476,
+      "score": 0
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "name": "geo-guess",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A GeoGuessr-style game for Android using Mapillary street-level panoramas. Solo + friends multiplayer.",
+  "license": "MIT",
+  "type": "module",
+  "workspaces": [
+    "apps/client",
+    "tools/pool-builder"
+  ],
+  "scripts": {
+    "gen:vectors": "node tools/gen-scoring-vectors.mjs",
+    "gen:bindings": "cargo test -p server export_bindings",
+    "test:client": "npm -w apps/client run test",
+    "test:rust": "cargo test",
+    "test": "npm run test:rust && npm run test:client",
+    "check:client": "npm -w apps/client run check",
+    "lint": "npm run check:client && cargo clippy --all-targets -- -D warnings",
+    "format": "prettier --write \"**/*.{ts,svelte,js,mjs,json,md}\" && cargo fmt",
+    "format:check": "prettier --check \"**/*.{ts,svelte,js,mjs,json,md}\"",
+    "dev": "npm -w apps/client run dev",
+    "build:pool": "npm -w tools/pool-builder run build-pool"
+  },
+  "devDependencies": {
+    "prettier": "^3.4.2",
+    "prettier-plugin-svelte": "^3.3.2"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

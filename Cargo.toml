@@ -1,0 +1,20 @@
+[workspace]
+resolver = "3"
+members = ["apps/server"]
+# The Tauri crate is its own standalone workspace (see apps/client/src-tauri/
+# Cargo.toml) so its large dependency tree doesn't slow down server cargo runs.
+exclude = ["apps/client/src-tauri"]
+
+[workspace.package]
+edition = "2024"
+license = "MIT"
+authors = ["geo-guess contributors"]
+
+[workspace.dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+ts-rs = "10"
+
+[profile.release]
+opt-level = 3
+lto = "thin"
