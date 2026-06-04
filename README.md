@@ -11,14 +11,14 @@ run yourself and expose to friends over a tunnel.
 
 ## Status / roadmap
 
-| Part | Scope                                                         | State                                                                  |
-| ---- | ------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| A    | Monorepo skeleton + cross-language game core (scoring, ts-rs) | ✅ done                                                                |
-| B    | Svelte 5 solo MVP (panorama + guess map + scoring)            | ✅ done                                                                |
-| C    | Tauri 2 + Android packaging + local storage (rusqlite)        | ✅ done (desktop compile verified; `android build` needs your SDK/NDK) |
-| D    | Axum WebSocket server + multiplayer rooms (server + client)   | ✅ done (run the server; see _Multiplayer_ below)                      |
-| E    | Pool builder + world-capital seeds (`data/locations.json`)    | ✅ done (run `npm run build-pool` with your token)                     |
-| F    | Android build polish + UX + Definition-of-Done pass           | 🚧 in progress (ESLint wired + clean; Android `build` needs your SDK)  |
+| Part | Scope                                                         | State                                                                                                      |
+| ---- | ------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| A    | Monorepo skeleton + cross-language game core (scoring, ts-rs) | ✅ done                                                                                                    |
+| B    | Svelte 5 solo MVP (panorama + guess map + scoring)            | ✅ done                                                                                                    |
+| C    | Tauri 2 + Android packaging + local storage (rusqlite)        | ✅ done (desktop compile verified; `android build` needs your SDK/NDK)                                     |
+| D    | Axum WebSocket server + multiplayer rooms (server + client)   | ✅ done (run the server; see _Multiplayer_ below)                                                          |
+| E    | Pool builder + world-capital seeds (`data/locations.json`)    | ✅ done (run `npm run build-pool` with your token)                                                         |
+| F    | Android build polish + UX + Definition-of-Done pass           | 🚧 in progress (ESLint clean; SDK/NDK + `android init` done; `build` needs Developer Mode — see _Android_) |
 
 ## Prerequisites
 
@@ -187,13 +187,21 @@ One-time host setup:
 
 - **JDK 17** + **Android Studio** (for the SDK and platform-tools), or the
   command-line SDK tools.
-- **Android SDK** (API 33/34) and **NDK** (e.g. 26.x). Set:
+- **Android SDK** (API 34) and **NDK** (26.x or 27.x — verified with `ndk;27.2.12479018`). Set:
   - `ANDROID_HOME` → SDK path (e.g. `%LOCALAPPDATA%\Android\Sdk`)
   - `NDK_HOME` → `%ANDROID_HOME%\ndk\<version>`
 - Rust Android targets:
   ```bash
   rustup target add aarch64-linux-android armv7-linux-androideabi i686-linux-android x86_64-linux-android
   ```
+- **Windows only — enable Developer Mode (required).** The Tauri Android build
+  symlinks the compiled `.so` into the Gradle project's `jniLibs`, and Windows
+  forbids creating symlinks without elevation _unless_ Developer Mode is on.
+  Without it the build fails with _“Creation symbolic link is not allowed for
+  this system.”_ Turn it on once: **Settings → Privacy & security → For
+  developers → Developer Mode → On** (or run an **elevated** terminal and
+  `reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\AppModelUnlock" /v AllowDevelopmentWithoutDevLicense /t REG_DWORD /d 1 /f`).
+  Alternatively, run the build commands from an Administrator terminal.
 
 Then, from `apps/client`:
 
