@@ -11,14 +11,14 @@ run yourself and expose to friends over a tunnel.
 
 ## Status / roadmap
 
-| Part | Scope                                                         | State                                                                                                      |
-| ---- | ------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| A    | Monorepo skeleton + cross-language game core (scoring, ts-rs) | ✅ done                                                                                                    |
-| B    | Svelte 5 solo MVP (panorama + guess map + scoring)            | ✅ done                                                                                                    |
-| C    | Tauri 2 + Android packaging + local storage (rusqlite)        | ✅ done (desktop compile verified; `android build` needs your SDK/NDK)                                     |
-| D    | Axum WebSocket server + multiplayer rooms (server + client)   | ✅ done (run the server; see _Multiplayer_ below)                                                          |
-| E    | Pool builder + world-capital seeds (`data/locations.json`)    | ✅ done (run `npm run build-pool` with your token)                                                         |
-| F    | Android build polish + UX + Definition-of-Done pass           | 🚧 in progress (ESLint clean; SDK/NDK + `android init` done; `build` needs Developer Mode — see _Android_) |
+| Part | Scope                                                         | State                                                                                                       |
+| ---- | ------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| A    | Monorepo skeleton + cross-language game core (scoring, ts-rs) | ✅ done                                                                                                     |
+| B    | Svelte 5 solo MVP (panorama + guess map + scoring)            | ✅ done                                                                                                     |
+| C    | Tauri 2 + Android packaging + local storage (rusqlite)        | ✅ done (desktop + Android arm64 compile verified)                                                          |
+| D    | Axum WebSocket server + multiplayer rooms (server + client)   | ✅ done (run the server; see _Multiplayer_ below)                                                           |
+| E    | Pool builder + world-capital seeds (`data/locations.json`)    | ✅ done (run `npm run build-pool` with your token)                                                          |
+| F    | Android build polish + UX + Definition-of-Done pass           | ✅ done (ESLint clean; Android arm64 debug APK built — `INTERNET` present; needs Developer Mode on Windows) |
 
 ## Prerequisites
 
