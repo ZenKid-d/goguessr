@@ -43,10 +43,18 @@ function poolPlugin(): Plugin {
 
 export default defineConfig({
   plugins: [svelte(), poolPlugin()],
+  // The `$lib` alias must be declared for Vite too (tsconfig `paths` only covers
+  // type-checking). Without this the dev server / `tauri dev` cannot resolve any
+  // `$lib/*` import and the app renders blank.
+  resolve: {
+    alias: { $lib: resolve(ROOT, 'src/lib') },
+  },
   // Read VITE_* from the repo-root .env (single env file for the whole monorepo).
   envDir: resolve(ROOT, '../..'),
   clearScreen: false,
-  server: { port: 5173, strictPort: false },
+  // host:true binds all interfaces (reachable from container/preview browsers);
+  // allowedHosts:true disables the dev host check for the same reason.
+  server: { host: true, port: 5173, strictPort: true, allowedHosts: true },
   build: { target: 'es2022' },
   test: {
     environment: 'node',

@@ -108,7 +108,7 @@
           {/key}
         {/if}
 
-        {#if mp.roundPhase === 'guessing'}
+        {#if mp.roundPhase === 'guessing' && view === 'pano'}
           <div class="dock">
             {#if panoError}
               <div class="row">

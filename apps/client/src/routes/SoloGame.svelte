@@ -124,16 +124,18 @@
             />
           {/key}
         {/if}
-        <div class="dock">
-          {#if panoError}
-            <div class="row">
-              <button type="button" onclick={retry}>Retry</button>
-              <button type="button" class="ghost" onclick={() => solo.skip()}>Skip round</button>
-            </div>
-          {:else}
-            <button type="button" class="primary big" onclick={openMap}>Make a guess</button>
-          {/if}
-        </div>
+        {#if view === 'pano'}
+          <div class="dock">
+            {#if panoError}
+              <div class="row">
+                <button type="button" onclick={retry}>Retry</button>
+                <button type="button" class="ghost" onclick={() => solo.skip()}>Skip round</button>
+              </div>
+            {:else}
+              <button type="button" class="primary big" onclick={openMap}>Make a guess</button>
+            {/if}
+          </div>
+        {/if}
       </div>
 
       <!-- Guess map layer (mounted once opened, shown on top when active) -->
