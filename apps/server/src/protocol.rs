@@ -160,9 +160,10 @@ pub enum ServerMessage {
     RoundStart {
         round: u32,
         image_id: String,
-        // i64 in Rust (exact ms), but force `number` in TS: serde sends a JSON
-        // integer that `JSON.parse` yields as a number, not a bigint.
-        #[ts(type = "number")]
+        // i64 in Rust (exact ms). Force the TS type instead of letting ts-rs map
+        // i64 -> bigint: serde sends a JSON integer (or null) that `JSON.parse`
+        // yields as a number, never a bigint. `Option` -> include `| null`.
+        #[ts(type = "number | null")]
         deadline_ts: Option<i64>,
     },
     /// A player locked in their guess (the guess itself stays hidden).
