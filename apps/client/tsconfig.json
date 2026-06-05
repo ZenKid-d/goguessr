@@ -3,7 +3,7 @@
   "compilerOptions": {
     "rootDir": ".",
     "baseUrl": ".",
-    "types": ["node", "vite/client"],
+    "types": ["node", "vite/client", "google.maps"],
     "paths": {
       "$lib/*": ["src/lib/*"]
     }
